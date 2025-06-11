@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#0f021f] text-white px-6 md:px-12 lg:px-20 pt-24 pb-32">
+    <section className="relative overflow-hidden bg-[#0f021f] text-white px-6 sm:px-12 lg:px-30 xl:px-40 pt-35 pb-32">
       {/* Background Ellipse with Blur Effect */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div
@@ -80,19 +80,19 @@ export default function Hero() {
 
       {/* Bottom Stats */}
       <div className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-white">
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl shadow-xl">
+        <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
           <h3 className="text-2xl font-bold">20,0000+</h3>
           <p className="text-sm mt-1">
             Satisfied Investors, Trade, Financial EnthesiasiEnthusiast
           </p>
         </div>
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl shadow-xl">
+        <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
           <h3 className="text-2xl font-bold">100+</h3>
           <p className="text-sm mt-1">
             Advance Features for Automated Tracking
           </p>
         </div>
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl shadow-xl">
+        <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
           <h3 className="text-2xl font-bold">91.92%</h3>
           <p className="text-sm mt-1">Accuracy in Predictable Analysis</p>
         </div>
