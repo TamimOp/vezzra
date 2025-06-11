@@ -60,108 +60,103 @@ export default function Navbar() {
     <>
       {/* Fixed container - always full width */}
       <div className="fixed top-0 left-0 w-full z-50">
-        {/* Padding container */}
+        {/* Single container handling all transitions */}
         <div
-          className={`w-full transition-all duration-500 ease-out ${
-            isScrolled ? "px-8 sm:px-12 lg:px-16 xl:px-20 pt-6" : "px-0 pt-0"
+          className={`w-full transition-all duration-700 ease-linear ${
+            isScrolled
+              ? "px-8 sm:px-12 lg:px-16 xl:px-20 pt-6"
+              : "px-6 sm:px-12 lg:px-30 xl:px-40 pt-0"
           }`}
         >
-          {/* Navigation container */}
-          <div
-            className={`transition-all duration-500 ease-out ${
-              isScrolled ? "mx-auto flex justify-center" : "w-full"
+          <nav
+            className={`flex items-center transition-all duration-700 ease-linear w-full ${
+              isScrolled
+                ? "bg-gray-900/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 justify-center gap-8 max-w-fit mx-auto"
+                : "py-4 lg:py-6 justify-between"
             }`}
           >
-            <nav
-              className={`flex items-center transition-all duration-500 ease-out ${
+            {/* Logo */}
+            <div className="flex items-center transition-all duration-700 ease-linear">
+              <Image
+                src="/assets/logo.png"
+                alt="Vezzra Logo"
+                width={117.6}
+                height={67.92}
+                className={`object-contain transition-all duration-700 ease-linear hover:scale-105 ${
+                  isScrolled
+                    ? "w-14 h-auto"
+                    : "w-20 h-auto sm:w-24 lg:w-[117.6px]"
+                }`}
+              />
+            </div>
+
+            {/* Desktop Nav Items */}
+            <div
+              className={`hidden lg:flex items-center font-semibold text-white tracking-wide uppercase transition-all duration-700 ease-linear ${
                 isScrolled
-                  ? "bg-gray-900/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 gap-8"
-                  : "px-6 sm:px-12 lg:px-30 xl:px-40 py-4 lg:py-6 justify-between w-full"
+                  ? "space-x-6 text-sm"
+                  : "space-x-8 xl:space-x-10 text-sm"
               }`}
             >
-              {/* Logo */}
-              <div className="flex items-center">
-                <Image
-                  src="/assets/logo.png"
-                  alt="Vezzra Logo"
-                  width={117.6}
-                  height={67.92}
-                  className={`object-contain transition-all duration-500 ease-out hover:scale-105 ${
-                    isScrolled
-                      ? "w-14 h-auto"
-                      : "w-20 h-auto sm:w-24 lg:w-[117.6px]"
-                  }`}
-                />
-              </div>
+              {navItems.map((item) => (
+                <Link
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setActive(item)}
+                  className="relative transition-all duration-300 ease-linear hover:text-purple-300 group flex items-center"
+                >
+                  {active === item && (
+                    <>
+                      <span
+                        className={`bg-purple-400 rounded-full animate-pulse transition-all duration-700 ease-linear mr-3 ${
+                          isScrolled ? "w-1.5 h-1.5" : "w-2 h-2"
+                        }`}
+                      />
+                      <span
+                        className={`absolute bg-purple-700 blur-2xl opacity-50 rounded-full z-0 transition-all duration-700 ease-linear ${
+                          isScrolled
+                            ? "left-[-8px] w-8 h-8"
+                            : "left-[-12px] w-14 h-14"
+                        }`}
+                      />
+                    </>
+                  )}
+                  <span className="relative z-20 group-hover:transform group-hover:scale-110 transition-transform duration-200 ease-linear">
+                    {item}
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 ease-linear group-hover:w-full" />
+                </Link>
+              ))}
 
-              {/* Desktop Nav Items */}
-              <div
-                className={`hidden lg:flex items-center font-semibold text-white tracking-wide uppercase transition-all duration-500 ease-out ${
+              {/* Contact Us Button */}
+              <button
+                className={`bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium uppercase tracking-wide transition-all duration-700 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105 hover:-translate-y-0.5 rounded-lg ${
                   isScrolled
-                    ? "space-x-6 text-sm"
-                    : "space-x-8 xl:space-x-10 text-sm"
+                    ? "px-5 py-2.5 text-sm"
+                    : "px-6 py-2.5 text-sm ml-6"
                 }`}
               >
-                {navItems.map((item) => (
-                  <Link
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    onClick={() => setActive(item)}
-                    className="relative transition-all duration-300 hover:text-purple-300 group flex items-center"
-                  >
-                    {active === item && (
-                      <>
-                        <span
-                          className={`bg-purple-400 rounded-full animate-pulse transition-all duration-500 mr-3 ${
-                            isScrolled ? "w-1.5 h-1.5" : "w-2 h-2"
-                          }`}
-                        />
-                        <span
-                          className={`absolute bg-purple-700 blur-2xl opacity-50 rounded-full z-0 transition-all duration-500 ${
-                            isScrolled
-                              ? "left-[-8px] w-8 h-8"
-                              : "left-[-12px] w-14 h-14"
-                          }`}
-                        />
-                      </>
-                    )}
-                    <span className="relative z-20 group-hover:transform group-hover:scale-110 transition-transform duration-200">
-                      {item}
-                    </span>
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                ))}
+                Contact Us
+              </button>
+            </div>
 
-                {/* Contact Us Button */}
-                <button
-                  className={`bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium uppercase tracking-wide transition-all duration-500 ease-out hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105 hover:-translate-y-0.5 rounded-lg ${
-                    isScrolled
-                      ? "px-5 py-2.5 text-sm"
-                      : "px-6 py-2.5 text-sm ml-6"
+            {/* Mobile Menu Button */}
+            {!isMobileMenuOpen && (
+              <button
+                onClick={toggleMobileMenu}
+                className={`lg:hidden text-white hover:bg-white/10 rounded-lg transition-all duration-700 ease-linear hover:scale-110 active:scale-95 ${
+                  isScrolled ? "p-2.5" : "p-2"
+                }`}
+                aria-label="Toggle mobile menu"
+              >
+                <Menu
+                  className={`transition-all duration-700 ease-linear ${
+                    isScrolled ? "w-5 h-5" : "w-6 h-6"
                   }`}
-                >
-                  Contact Us
-                </button>
-              </div>
-
-              {/* Mobile Menu Button */}
-              {!isMobileMenuOpen && (
-                <button
-                  onClick={toggleMobileMenu}
-                  className={`lg:hidden text-white hover:bg-white/10 rounded-lg transition-all duration-500 hover:scale-110 active:scale-95 ${
-                    isScrolled ? "p-2.5" : "p-2"
-                  }`}
-                  aria-label="Toggle mobile menu"
-                >
-                  <Menu
-                    className={`transition-all duration-500 ${
-                      isScrolled ? "w-5 h-5" : "w-6 h-6"
-                    }`}
-                  />
-                </button>
-              )}
-            </nav>
-          </div>
+                />
+              </button>
+            )}
+          </nav>
         </div>
       </div>
 
@@ -180,7 +175,7 @@ export default function Navbar() {
                 <span className="text-white font-semibold text-lg">Menu</span>
                 <button
                   onClick={toggleMobileMenu}
-                  className="text-white p-2 hover:bg-white/10 rounded-lg transition-all duration-200 hover:rotate-90"
+                  className="text-white p-2 hover:bg-white/10 rounded-lg transition-all duration-200 ease-linear hover:rotate-90"
                   aria-label="Close mobile menu"
                 >
                   <X className="w-5 h-5" />
@@ -194,7 +189,7 @@ export default function Navbar() {
                     key={item}
                     href={`#${item.toLowerCase()}`}
                     onClick={() => handleNavClick(item)}
-                    className={`flex items-center space-x-3 w-full p-4 rounded-lg font-medium text-left transition-all duration-200 hover:transform hover:translate-x-2 ${
+                    className={`flex items-center space-x-3 w-full p-4 rounded-lg font-medium text-left transition-all duration-200 ease-linear hover:transform hover:translate-x-2 ${
                       active === item
                         ? "bg-purple-600/20 text-purple-300 border border-purple-500/30 shadow-lg"
                         : "text-gray-300 hover:bg-white/5 hover:text-white"
@@ -214,7 +209,7 @@ export default function Navbar() {
               <div className="p-6 border-t border-gray-700/50">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105"
                 >
                   Contact Us
                 </button>
