@@ -71,7 +71,7 @@ export default function Navbar() {
           <nav
             className={`flex items-center transition-all duration-700 ease-linear w-full ${
               isScrolled
-                ? "bg-gray-900/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 justify-center gap-8 max-w-fit mx-auto"
+                ? "bg-gray-900/70 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 justify-center gap-8 max-w-fit mx-auto"
                 : "py-4 lg:py-6 justify-between"
             }`}
           >
