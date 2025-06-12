@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -83,22 +85,47 @@ export default function Hero() {
               className="relative z-10"
               priority
             />
-            {/* Top overlay */}
-            <Image
-              src="/assets/heroBalanceTop.png"
-              alt="Balance Top"
-              width={175}
-              height={99}
+
+            {/* Top overlay with left-to-right animation */}
+            <motion.div
               className="absolute z-20 -top-4 -right-12"
-            />
-            {/* Bottom overlay */}
-            <Image
-              src="/assets/heroBalanceBottom.png"
-              alt="Balance Bottom"
-              width={311}
-              height={176}
+              animate={{
+                x: [0, 30, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Image
+                src="/assets/heroBalanceTop.png"
+                alt="Balance Top"
+                width={175}
+                height={99}
+              />
+            </motion.div>
+
+            {/* Bottom overlay with right-to-left animation */}
+            <motion.div
               className="absolute z-20 bottom-0 -right-5"
-            />
+              animate={{
+                x: [0, -30, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            >
+              <Image
+                src="/assets/heroBalanceBottom.png"
+                alt="Balance Bottom"
+                width={311}
+                height={176}
+              />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -106,15 +133,15 @@ export default function Hero() {
       {/* Bottom Stats */}
       <div className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-white">
         <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
-          <h3 className="text-2xl font-bold">20,0000+</h3>
+          <h3 className="text-2xl font-bold">20,000+</h3>
           <p className="text-sm mt-1">
-            Satisfied Investors, Trade, Financial EnthesiasiEnthusiast
+            Satisfied Investors, Trade, Financial Enthusiasts
           </p>
         </div>
         <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
           <h3 className="text-2xl font-bold">100+</h3>
           <p className="text-sm mt-1">
-            Advance Features for Automated Tracking
+            Advanced Features for Automated Tracking
           </p>
         </div>
         <div className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl">
