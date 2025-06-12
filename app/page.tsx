@@ -1,3 +1,4 @@
+import Feedback from "@/components/Feedback";
 import Hero from "@/components/Hero";
 import WhyChoose from "@/components/WhyChoose";
 
@@ -19,6 +20,7 @@ export default function Home() {
 
       <Hero />
       <WhyChoose />
+      <Feedback />
     </main>
   );
 }
