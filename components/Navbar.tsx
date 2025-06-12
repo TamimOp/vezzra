@@ -68,95 +68,98 @@ export default function Navbar() {
               : "px-6 sm:px-12 lg:px-30 xl:px-40 pt-0"
           }`}
         >
-          <nav
-            className={`flex items-center transition-all duration-700 ease-linear w-full ${
-              isScrolled
-                ? "bg-gray-900/70 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 justify-center gap-8 max-w-fit mx-auto"
-                : "py-4 lg:py-6 justify-between"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center transition-all duration-700 ease-linear">
-              <Image
-                src="/assets/logo.png"
-                alt="Vezzra Logo"
-                width={117.6}
-                height={67.92}
-                className={`object-contain transition-all duration-700 ease-linear hover:scale-105 ${
-                  isScrolled
-                    ? "w-14 h-auto"
-                    : "w-20 h-auto sm:w-24 lg:w-[117.6px]"
-                }`}
-              />
-            </div>
-
-            {/* Desktop Nav Items */}
-            <div
-              className={`hidden lg:flex items-center font-semibold text-white tracking-wide uppercase transition-all duration-700 ease-linear ${
+          {/* Add max-w-7xl container wrapper */}
+          <div className="max-w-7xl mx-auto">
+            <nav
+              className={`flex items-center transition-all duration-700 ease-linear w-full ${
                 isScrolled
-                  ? "space-x-6 text-sm"
-                  : "space-x-8 xl:space-x-10 text-sm"
+                  ? "bg-gray-900/70 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl px-8 py-4 justify-center gap-8 max-w-fit mx-auto"
+                  : "py-4 lg:py-6 justify-between"
               }`}
             >
-              {navItems.map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setActive(item)}
-                  className="relative transition-all duration-300 ease-linear hover:text-purple-300 group flex items-center"
-                >
-                  {active === item && (
-                    <>
-                      <span
-                        className={`bg-purple-400 rounded-full animate-pulse transition-all duration-700 ease-linear mr-3 ${
-                          isScrolled ? "w-1.5 h-1.5" : "w-2 h-2"
-                        }`}
-                      />
-                      <span
-                        className={`absolute bg-purple-700 blur-2xl opacity-50 rounded-full z-0 transition-all duration-700 ease-linear ${
-                          isScrolled
-                            ? "left-[-8px] w-8 h-8"
-                            : "left-[-12px] w-14 h-14"
-                        }`}
-                      />
-                    </>
-                  )}
-                  <span className="relative z-20 group-hover:transform group-hover:scale-110 transition-transform duration-200 ease-linear">
-                    {item}
-                  </span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 ease-linear group-hover:w-full" />
-                </Link>
-              ))}
-
-              {/* Contact Us Button */}
-              <button
-                className={`bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium uppercase tracking-wide transition-all duration-700 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105 hover:-translate-y-0.5 rounded-lg ${
-                  isScrolled
-                    ? "px-5 py-2.5 text-sm"
-                    : "px-6 py-2.5 text-sm ml-6"
-                }`}
-              >
-                Contact Us
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            {!isMobileMenuOpen && (
-              <button
-                onClick={toggleMobileMenu}
-                className={`lg:hidden text-white hover:bg-white/10 rounded-lg transition-all duration-700 ease-linear hover:scale-110 active:scale-95 ${
-                  isScrolled ? "p-2.5" : "p-2"
-                }`}
-                aria-label="Toggle mobile menu"
-              >
-                <Menu
-                  className={`transition-all duration-700 ease-linear ${
-                    isScrolled ? "w-5 h-5" : "w-6 h-6"
+              {/* Logo */}
+              <div className="flex items-center transition-all duration-700 ease-linear">
+                <Image
+                  src="/assets/logo.png"
+                  alt="Vezzra Logo"
+                  width={117.6}
+                  height={67.92}
+                  className={`object-contain transition-all duration-700 ease-linear hover:scale-105 ${
+                    isScrolled
+                      ? "w-14 h-auto"
+                      : "w-20 h-auto sm:w-24 lg:w-[117.6px]"
                   }`}
                 />
-              </button>
-            )}
-          </nav>
+              </div>
+
+              {/* Desktop Nav Items */}
+              <div
+                className={`hidden lg:flex items-center font-semibold text-white tracking-wide uppercase transition-all duration-700 ease-linear ${
+                  isScrolled
+                    ? "space-x-6 text-sm"
+                    : "space-x-8 xl:space-x-10 text-sm"
+                }`}
+              >
+                {navItems.map((item) => (
+                  <Link
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    onClick={() => setActive(item)}
+                    className="relative transition-all duration-300 ease-linear hover:text-purple-300 group flex items-center"
+                  >
+                    {active === item && (
+                      <>
+                        <span
+                          className={`bg-purple-400 rounded-full animate-pulse transition-all duration-700 ease-linear mr-3 ${
+                            isScrolled ? "w-1.5 h-1.5" : "w-2 h-2"
+                          }`}
+                        />
+                        <span
+                          className={`absolute bg-purple-700 blur-2xl opacity-50 rounded-full z-0 transition-all duration-700 ease-linear ${
+                            isScrolled
+                              ? "left-[-8px] w-8 h-8"
+                              : "left-[-12px] w-14 h-14"
+                          }`}
+                        />
+                      </>
+                    )}
+                    <span className="relative z-20 group-hover:transform group-hover:scale-110 transition-transform duration-200 ease-linear">
+                      {item}
+                    </span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 ease-linear group-hover:w-full" />
+                  </Link>
+                ))}
+
+                {/* Contact Us Button */}
+                <button
+                  className={`bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium uppercase tracking-wide transition-all duration-700 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105 hover:-translate-y-0.5 rounded-lg ${
+                    isScrolled
+                      ? "px-5 py-2.5 text-sm"
+                      : "px-6 py-2.5 text-sm ml-6"
+                  }`}
+                >
+                  Contact Us
+                </button>
+              </div>
+
+              {/* Mobile Menu Button */}
+              {!isMobileMenuOpen && (
+                <button
+                  onClick={toggleMobileMenu}
+                  className={`lg:hidden text-white hover:bg-white/10 rounded-lg transition-all duration-700 ease-linear hover:scale-110 active:scale-95 ${
+                    isScrolled ? "p-2.5" : "p-2"
+                  }`}
+                  aria-label="Toggle mobile menu"
+                >
+                  <Menu
+                    className={`transition-all duration-700 ease-linear ${
+                      isScrolled ? "w-5 h-5" : "w-6 h-6"
+                    }`}
+                  />
+                </button>
+              )}
+            </nav>
+          </div>
         </div>
       </div>
 
