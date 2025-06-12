@@ -16,10 +16,10 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center">
         {/* LEFT TEXT CONTENT */}
-        <div className="text-left max-w-xl space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+        <div className="text-left max-w-2xl space-y-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-[90px] font-extrabold leading-tight">
             The Future <br />
             of{" "}
             <span className="bg-clip-text text-transparent bg-[linear-gradient(182.76deg,#FA52FF_46.71%,rgba(83,0,255,0.925)_56.01%,#AF94FF_60.16%)]">
@@ -29,15 +29,40 @@ export default function Hero() {
             Here.
           </h1>
 
-          <p className="text-sm sm:text-base text-gray-200 max-w-md">
+          <p className="text-base sm:text-2xl text-[#EBEBEB] max-w-2xl">
             Secure. Fast. Transparent. Join the next-gen trading experience.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button className="bg-gradient-to-r from-[#8D2EFF] to-[#F100FD] hover:opacity-90 text-white font-semibold py-2.5 px-6 rounded-full shadow-md">
-              Start For Free
-            </button>
-            <button className="border border-white hover:bg-white hover:text-black font-semibold py-2.5 px-6 rounded-full transition-all">
+            {/* Start For Free Button with gradient border hover */}
+            <div
+              className="rounded-full hover:scale-105 active:scale-95 transition-all duration-300 group relative overflow-hidden p-[3px]"
+              style={{
+                background: "#FFFFFF0F",
+                boxShadow: "0px 4px 26.8px 0px #9F55FF7A",
+              }}
+            >
+              {/* Gradient border overlay - left to right: theme colors to white */}
+              <div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #5A05EE 10%, #8C20FF 20%, #FFFFFF 100%)",
+                }}
+              />
+
+              <button
+                className="relative text-white font-semibold py-2.5 px-6 rounded-full w-full h-full z-10"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #5A05EE 0%, #8C20FF 100%)",
+                }}
+              >
+                Start For Free
+              </button>
+            </div>
+
+            <button className="border border-white hover:bg-white hover:text-black font-semibold py-2.5 px-6 rounded-full transition-all duration-200">
               Get App
             </button>
           </div>
