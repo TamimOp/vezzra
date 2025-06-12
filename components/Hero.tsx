@@ -21,15 +21,29 @@ export default function Hero() {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center">
         {/* LEFT TEXT CONTENT */}
         <div className="text-left max-w-2xl space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-[90px] font-extrabold leading-tight">
-            The Future <br />
-            of{" "}
-            <span className="bg-clip-text text-transparent bg-[linear-gradient(182.76deg,#FA52FF_46.71%,rgba(83,0,255,0.925)_56.01%,#AF94FF_60.16%)]">
-              Crypto
-            </span>{" "}
-            is <br />
-            Here.
-          </h1>
+          <div className="relative">
+            <h1 className="text-4xl sm:text-5xl lg:text-[90px] font-extrabold leading-tight">
+              The Future <br />
+              of{" "}
+              <span className="bg-clip-text text-transparent bg-[linear-gradient(182.76deg,#FA52FF_46.71%,rgba(83,0,255,0.925)_56.01%,#AF94FF_60.16%)]">
+                Crypto
+              </span>{" "}
+              is <br />
+              Here.
+            </h1>
+
+            {/* Hero Star positioned at top right of "Future" */}
+            <Image
+              src="/assets/heroStar.png"
+              alt="Hero Star"
+              width={40}
+              height={40}
+              className="absolute top-0 right-0 lg:w-12 lg:h-12 xl:w-16 xl:h-16"
+              style={{
+                transform: "translate(20px, -10px)",
+              }}
+            />
+          </div>
 
           <p className="text-base sm:text-2xl text-[#EBEBEB] max-w-2xl">
             Secure. Fast. Transparent. Join the next-gen trading experience.
