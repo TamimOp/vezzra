@@ -20,7 +20,6 @@ export default function Hero() {
                 Here.
               </h1>
 
-              {/* Hero Star positioned at top right of "Future" */}
               <Image
                 src="/assets/heroStar.png"
                 alt="Hero Star"
@@ -38,7 +37,6 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              {/* Start For Free Button with gradient border hover */}
               <div
                 className="rounded-full hover:scale-105 active:scale-95 transition-all duration-300 group relative overflow-hidden p-[3px]"
                 style={{
@@ -46,7 +44,6 @@ export default function Hero() {
                   boxShadow: "0px 4px 26.8px 0px #9F55FF7A",
                 }}
               >
-                {/* Gradient border overlay - left to right: theme colors to white */}
                 <div
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{
