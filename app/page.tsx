@@ -1,4 +1,5 @@
 import BuyCrypto from "@/components/BuyCrypto";
+import CryptoCoin from "@/components/CryptoCoin";
 import FAQ from "@/components/FAQ";
 import Feedback from "@/components/Feedback";
 import Hero from "@/components/Hero";
@@ -50,6 +51,7 @@ export default function Home() {
         <Feedback />
         <BuyCrypto />
       </div>
+      <CryptoCoin />
       <FAQ />
     </main>
   );
