@@ -96,7 +96,7 @@ export default function Feedback() {
       </div>
 
       {/* Arrows */}
-      <div className="flex justify-center gap-4 mt-12">
+      <div className="flex justify-center gap-4 mt-20">
         <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
           <ArrowLeft className="text-white w-5 h-5" />
         </button>
