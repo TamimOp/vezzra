@@ -11,7 +11,7 @@ const features = [
 
 export default function BuyCrypto() {
   return (
-    <section className="relative py-24 px-6 sm:px-12 text-white overflow-hidden">
+    <section className="relative py-24 px-6 sm:px-12 md:px-30 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         {/* Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
@@ -43,7 +43,7 @@ export default function BuyCrypto() {
                 >
                   {index + 1}
                 </div>
-                <p className="text-gray-200">{item}</p>
+                <p className="text-lg text-gray-200">{item}</p>
               </li>
             ))}
           </ul>
