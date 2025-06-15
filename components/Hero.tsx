@@ -153,7 +153,6 @@ export default function Hero() {
                 priority
               />
 
-              {/* Top overlay with same slide-in animation as mobile */}
               <motion.div
                 className="absolute z-20 -top-4 -right-12"
                 animate={{
