@@ -1,4 +1,5 @@
 import BuyCrypto from "@/components/BuyCrypto";
+import Contact from "@/components/Contact";
 import CryptoCoin from "@/components/CryptoCoin";
 import FAQ from "@/components/FAQ";
 import Feedback from "@/components/Feedback";
@@ -53,6 +54,7 @@ export default function Home() {
       </div>
       <CryptoCoin />
       <FAQ />
+      <Contact />
     </main>
   );
 }
