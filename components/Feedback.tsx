@@ -84,10 +84,10 @@ export default function Feedback() {
     <section className="relative px-6 sm:px-12 py-24 text-white overflow-hidden">
       {/* Title */}
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-4xl mx-auto text-center mb-16"
       >
         <h2 className="text-4xl sm:text-7xl font-bold leading-tight mb-4">
@@ -101,7 +101,13 @@ export default function Feedback() {
       </motion.div>
 
       {/* Cards Container */}
-      <div className="max-w-6xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="max-w-6xl mx-auto"
+      >
         {/* Desktop View - Show 2 cards with carousel */}
         <div className="hidden md:block">
           <div className="relative h-[450px] overflow-hidden">
@@ -180,14 +186,14 @@ export default function Feedback() {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Arrows */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.6 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         className="flex justify-center gap-4 mt-12"
       >
         <button
