@@ -156,17 +156,13 @@ export default function Hero() {
               {/* Top overlay with same slide-in animation as mobile */}
               <motion.div
                 className="absolute z-20 -top-4 -right-12"
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.7 }}
                 animate={{
                   x: [0, 30, 0],
                 }}
-                style={{
-                  animationDuration: "6s",
-                  animationIterationCount: "infinite",
-                  animationTimingFunction: "linear",
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 }}
               >
                 <Image
@@ -179,18 +175,14 @@ export default function Hero() {
 
               <motion.div
                 className="absolute z-20 bottom-0 -right-5"
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.9 }}
                 animate={{
                   x: [0, -30, 0],
                 }}
-                style={{
-                  animationDuration: "7s",
-                  animationIterationCount: "infinite",
-                  animationTimingFunction: "linear",
-                  animationDelay: "1s",
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
                 }}
               >
                 <Image
