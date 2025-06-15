@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const tabs = ["Popular", "Rewards", "Stablecoins", "Newly listed"];
 
@@ -19,7 +20,13 @@ const CryptoCoin = () => {
       }}
     >
       {/* Heading */}
-      <div className="text-center max-w-4xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center max-w-4xl mx-auto"
+      >
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
           Earn Rewards on Your Crypto
         </h2>
@@ -27,13 +34,23 @@ const CryptoCoin = () => {
           Real users. Real results. Here&#39;s what our community has to say
           about using our wallet to power their crypto journey.
         </p>
-      </div>
+      </motion.div>
 
       {/* Tabs */}
-      <div className="flex justify-center mt-8 sm:mt-10 lg:mt-12 gap-2 sm:gap-4 flex-wrap px-4">
-        {tabs.map((tab) => (
-          <button
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="flex justify-center mt-8 sm:mt-10 lg:mt-12 gap-2 sm:gap-4 flex-wrap px-4"
+      >
+        {tabs.map((tab, index) => (
+          <motion.button
             key={tab}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
             className={`relative px-3 sm:px-5 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition ${
               activeTab === tab
                 ? "bg-[#301d76] text-white border border-purple-500"
@@ -45,16 +62,26 @@ const CryptoCoin = () => {
               <Sparkles className="absolute -top-2 -right-2 w-3 h-3 sm:w-4 sm:h-4 text-purple-400 animate-pulse" />
             )}
             {tab}
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 px-4 sm:px-0">
         {Array.from({ length: 8 }, (_, index) => (
-          <div
+          <motion.div
             key={index}
-            className="relative bg-[#2D069282] rounded-xl p-4 sm:p-5 lg:p-8 flex flex-col items-center justify-center text-center transition hover:scale-[1.02] min-h-[200px] sm:min-h-[220px]"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              delay: 0.7 + index * 0.1,
+              type: "spring",
+              stiffness: 100,
+            }}
+            whileHover={{ scale: 1.05 }}
+            className="relative bg-[#2D069282] rounded-xl p-4 sm:p-5 lg:p-8 flex flex-col items-center justify-center text-center transition min-h-[200px] sm:min-h-[220px]"
           >
             {/* APR Badges */}
             <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-[#301d76] text-xs font-semibold px-2 py-1 rounded-full border border-purple-500">
@@ -80,12 +107,18 @@ const CryptoCoin = () => {
               Satisfied Investors, Trade, <br className="hidden sm:block" />
               Financial Enthusiast
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {/* CTA Button */}
-      <div className="flex justify-center mt-12 sm:mt-16 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 1.5 }}
+        className="flex justify-center mt-12 sm:mt-16 px-4"
+      >
         <div
           className="rounded-full hover:scale-105 active:scale-95 transition-all duration-300 group relative overflow-hidden p-[3px]"
           style={{
@@ -111,7 +144,7 @@ const CryptoCoin = () => {
             Start For Free
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
