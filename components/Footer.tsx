@@ -14,22 +14,30 @@ export default function Footer() {
   const bottomLinks = ["Terms of Service", "Cookie Settings", "Disclosures"];
 
   return (
-    <footer className="bg-[#0A010F] text-white pt-16 pb-8 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
-      {/* Bottom Ellipse Gradient - Glowing Effect */}
+    <footer className="relative text-white pt-16 pb-8 px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden">
       <div
-        className="absolute bottom-0 left-1/2 rounded-full opacity-60 pointer-events-none"
+        className="absolute inset-0 z-0"
         style={{
-          width: "min(1101px, 200vw)",
-          height: "min(1012px, 180vh)",
           background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(143, 105, 242, 0.88) 0%, rgba(73, 26, 228, 0.88) 100%)",
-          filter: "blur(min(390.8px, 30vw))",
-          transform: "translateX(-50%) translateY(80%)",
+            "linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(10, 1, 15, 0.3) 70%, rgba(10, 1, 15, 0.6) 85%, #0A010F 100%)",
         }}
       />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-12 border-b-[3px] border-[#4200FF2B] pb-8 md:pb-10 relative z-20">
+      {/* Bottom Ellipse Gradient - Slightly Reduced Glow Effect */}
+      <div
+        className="absolute bottom-0 left-1/2 rounded-full opacity-70 pointer-events-none z-10"
+        style={{
+          width: "min(900px, 160vw)",
+          height: "min(700px, 120vh)",
+          background:
+            "radial-gradient(50% 50% at 50% 50%, rgba(143, 105, 242, 0.7) 0%, rgba(73, 26, 228, 0.5) 100%)",
+          filter: "blur(min(250px, 25vw))",
+          transform: "translateX(-50%) translateY(65%)",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-12 border-b-[3px] border-[#4200FF2B] pb-8 md:pb-10">
           {/* LEFT SECTION */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -144,9 +152,11 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="flex flex-col sm:flex-row justify-between items-center text-[#A8A4B3] text-xs sm:text-sm md:text-[15px] pt-4 md:pt-6 gap-3 md:gap-4 relative z-20"
+          className="flex flex-col sm:flex-row justify-between items-center text-[#A8A4B3] text-xs sm:text-sm md:text-[15px] pt-4 md:pt-6 gap-3 md:gap-4"
         >
-          <p className="text-center sm:text-left">Copyright 2025 webdevxio.com</p>
+          <p className="text-center sm:text-left">
+            Copyright 2025 webdevxio.com
+          </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-center">
             {bottomLinks.map((link, index) => (
               <motion.a
