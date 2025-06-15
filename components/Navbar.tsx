@@ -57,6 +57,18 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  // Function to handle Contact Us button click
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Fixed container - always full width */}
@@ -150,6 +162,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
+                  onClick={handleContactClick}
                   className={`bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium uppercase tracking-wide transition-all duration-700 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105 hover:-translate-y-0.5 rounded-lg ${
                     isScrolled
                       ? "px-5 py-2.5 text-sm"
@@ -252,7 +265,7 @@ export default function Navbar() {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={handleContactClick}
                   className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ease-linear hover:shadow-lg hover:shadow-purple-500/25 border border-purple-500/20 hover:scale-105"
                 >
                   Contact Us

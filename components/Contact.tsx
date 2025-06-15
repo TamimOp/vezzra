@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section className="relative flex justify-center px-4 py-40 overflow-hidden bg-black">
+    <section id="contact" className="relative flex justify-center px-4 py-40 overflow-hidden bg-black">
       <div className="relative w-full max-w-6xl group cursor-pointer">
         {/* Gradient border wrapper */}
         <div
