@@ -210,7 +210,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1.6 }}
-          className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-white"
+          className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-start text-white"
         >
           {[
             {
@@ -234,8 +234,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 1.8 + index * 0.2 }}
               className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl"
             >
-              <h3 className="text-2xl font-bold">{stat.title}</h3>
-              <p className="text-sm mt-1">{stat.desc}</p>
+              <h3 className="text-[40px] font-medium">{stat.title}</h3>
+              <p className="text-base mt-1 font-normal text-[#C6C6C6]">
+                {stat.desc}
+              </p>
             </motion.div>
           ))}
         </motion.div>
