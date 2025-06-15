@@ -64,10 +64,10 @@ export default function Hero() {
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <Image
                   src="/assets/heroStar.png"
@@ -200,7 +200,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.6 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
           className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-start text-white"
         >
           {[
@@ -222,7 +222,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 1.8 + index * 0.2 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               className="backdrop-blur-md bg-[#24005645] border border-white/20 p-6 rounded-xl shadow-xl"
             >
               <h3 className="text-[40px] font-medium">{stat.title}</h3>
