@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-
-const tabs = ["Popular", "Rewards", "Stablecoins", "Newly listed"];
+import { cryptoData, tabs } from "../data/cryptoData";
 
 const CryptoCoin = () => {
   const [activeTab, setActiveTab] = useState("Popular");
+
+  const currentData = cryptoData[activeTab as keyof typeof cryptoData] || cryptoData.Popular;
 
   return (
     <section
@@ -68,9 +69,9 @@ const CryptoCoin = () => {
 
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 px-4 sm:px-0">
-        {Array.from({ length: 8 }, (_, index) => (
+        {currentData.map((crypto, index) => (
           <motion.div
-            key={index}
+            key={`${activeTab}-${index}`}
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
@@ -80,19 +81,28 @@ const CryptoCoin = () => {
               type: "spring",
               stiffness: 100,
             }}
-            whileHover={{ scale: 1.05 }}
-            className="relative bg-[#2D069282] rounded-xl p-4 sm:p-5 lg:p-8 flex flex-col items-center justify-center text-center transition min-h-[200px] sm:min-h-[220px]"
+            whileHover={{ 
+              y: -8,
+              transition: { 
+                duration: 0.3,
+                ease: "easeOut"
+              }
+            }}
+            className="relative bg-[#2D069282] rounded-xl p-4 sm:p-5 lg:p-8 flex flex-col items-center justify-center text-center hover:bg-[#2D069299] transition-colors duration-300 min-h-[200px] sm:min-h-[220px] cursor-pointer border border-transparent hover:border-purple-500/20"
+            style={{
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+            }}
           >
             {/* APR Badges */}
             <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-[#301d76] text-xs font-semibold px-2 py-1 rounded-full border border-purple-500">
-              2% APR
+              {crypto.apr} APR
             </div>
 
             {/* Logo */}
             <div className="my-4 sm:my-6">
               <Image
-                src={`/assets/cryptoCoin/logo${index + 1}.png`}
-                alt={`Crypto logo ${index + 1}`}
+                src={crypto.logo}
+                alt={`${crypto.name} logo`}
                 width={50}
                 height={50}
                 className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
@@ -101,11 +111,10 @@ const CryptoCoin = () => {
 
             {/* Info */}
             <h3 className="font-semibold text-base sm:text-lg mb-2">
-              Bitcoin BTC
+              {crypto.name} {crypto.symbol}
             </h3>
             <p className="text-xs sm:text-sm text-gray-300 leading-tight px-2">
-              Satisfied Investors, Trade, <br className="hidden sm:block" />
-              Financial Enthusiast
+              {crypto.description}
             </p>
           </motion.div>
         ))}
