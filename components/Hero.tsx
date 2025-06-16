@@ -125,7 +125,12 @@ export default function Hero() {
                 </button>
               </div>
 
-              <button className="border border-white hover:bg-white hover:text-black font-semibold py-2.5 px-6 rounded-full transition-all duration-200">
+              <button
+                className="border border-white hover:bg-white hover:text-black font-semibold py-2.5 px-6 rounded-full transition-all duration-200"
+                style={{
+                  boxShadow: "0px 4px 26.8px 0px #9F55FF7A",
+                }}
+              >
                 Get App
               </button>
             </motion.div>
