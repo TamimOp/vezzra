@@ -22,7 +22,7 @@ export default function BuyCrypto() {
           className="w-full lg:w-1/2 flex justify-center"
         >
           <Image
-            src="/assets/cryptoBuy.png"
+            src="/assets/Presentation.png"
             alt="Buy Crypto Illustration"
             width={800}
             height={600}
