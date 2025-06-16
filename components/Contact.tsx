@@ -1,10 +1,38 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const handleSendEmail = () => {
+    toast.success("Email sent successfully!", {
+      duration: 3000,
+      position: "top-center",
+      style: {
+        background: "rgba(36, 0, 86, 0.7)",
+        color: "#F2F2FA",
+        borderRadius: "68px",
+        padding: "20px 32px",
+        fontSize: "18px",
+        fontWeight: "600",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
+        boxShadow:
+          "0px 8px 48px rgba(45, 6, 146, 0.6), 0px 2px 32px rgba(27, 0, 98, 0.8)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+      },
+      iconTheme: {
+        primary: "#4B0DFF",
+        secondary: "#ffffff",
+      },
+    });
+  };
+
   return (
-    <section id="contact" className="relative flex justify-center px-4 py-40 overflow-hidden bg-black">
+    <section
+      id="contact"
+      className="relative flex justify-center px-4 py-40 overflow-hidden bg-black"
+    >
       <div className="relative w-full max-w-6xl group cursor-pointer">
         {/* Gradient border wrapper */}
         <div
@@ -44,6 +72,7 @@ export default function Contact() {
               }}
             />
             <button
+              onClick={handleSendEmail}
               className="absolute right-1 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity w-16 h-16 rounded-full flex items-center justify-center border-2 border-black"
               style={{ background: "#2C0F79" }}
             >
