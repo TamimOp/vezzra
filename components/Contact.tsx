@@ -42,7 +42,6 @@ export default function Contact() {
                 background: "#35247482",
                 boxShadow: "0px 4px 38.1px 9px #1B0062C7",
               }}
-              readOnly
             />
             <button
               className="absolute right-1 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity w-16 h-16 rounded-full flex items-center justify-center border-2 border-black"
