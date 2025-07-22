@@ -49,7 +49,7 @@ export default function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md"
+            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md min-h-[96px] sm:min-h-[159px]"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -60,7 +60,9 @@ export default function WhyChoose() {
               />
               <span className="text-white text-lg font-medium">Support</span>
             </div>
-            <span className="text-white text-[64px] font-extrabold">100k+</span>
+            <span className="text-5xl sm:text-[64px] font-extrabold">
+              100k+
+            </span>
           </motion.div>
 
           {/* Card 2 */}
@@ -69,9 +71,9 @@ export default function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md"
+            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md min-h-[96px] sm:min-h-[159px]"
           >
-            <span className="text-white text-[64px] font-extrabold">90%</span>
+            <span className="text-5xl sm:text-[64px] font-extrabold">90%</span>
             <div className="flex items-center gap-2">
               <Image
                 src="/assets/Rectangle.svg"
@@ -89,7 +91,7 @@ export default function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md"
+            className="flex justify-between items-center border border-[#3F3F3F] rounded-2xl px-6 py-6 bg-black/10 backdrop-blur-md min-h-[96px] sm:min-h-[159px]"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -100,7 +102,7 @@ export default function WhyChoose() {
               />
               <span className="text-white text-lg font-medium">Service</span>
             </div>
-            <span className="text-white text-[64px] font-extrabold">95%</span>
+            <span className="text-5xl sm:text-[64px] font-extrabold">95%</span>
           </motion.div>
         </div>
       </div>
