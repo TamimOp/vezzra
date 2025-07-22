@@ -158,30 +158,55 @@ export default function Hero() {
                 priority
               />
 
+              {/* Top Card */}
               <motion.div
                 className="absolute z-20 -top-4 -right-12"
-                animate={{
-                  x: [0, 30, 0],
-                }}
+                animate={{ x: [0, 30, 0] }}
                 transition={{
                   duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
               >
-                <Image
-                  src="/assets/heroBalanceTop.png"
-                  alt="Balance Top"
-                  width={175}
-                  height={99}
-                />
+                <div
+                  className="shadow-lg flex flex-col items-start justify-start relative"
+                  style={{
+                    width: "175px",
+                    height: "99px",
+                    flexShrink: 0,
+                    borderTopLeftRadius: "13px",
+                    borderTopRightRadius: 0,
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                    backdropFilter: "blur(5.1px)",
+                    WebkitBackdropFilter: "blur(5.1px)",
+                    background:
+                      "linear-gradient(180deg, rgba(0, 0, 0, 0.59) 0%, rgba(46, 46, 46, 0.59) 37%, rgba(50, 0, 65, 0.24) 100%)",
+                  }}
+                >
+                  <div className="absolute top-3 left-4 z-10 flex flex-col items-start">
+                    <span className="text-xs text-[#B6B6B6] font-medium">
+                      Portfolio Balance
+                    </span>
+                    <span className="text-lg font-bold text-white mt-1">
+                      $32147
+                    </span>
+                  </div>
+                  <Image
+                    src="/assets/TopChart.png"
+                    alt="Top Chart"
+                    width={175}
+                    height={99}
+                    className="absolute bottom-0 left-0 z-0"
+                    style={{ objectFit: "cover", borderRadius: "inherit" }}
+                  />
+                </div>
               </motion.div>
 
+              {/* Bottom Card */}
               <motion.div
                 className="absolute z-20 bottom-0 -right-5"
-                animate={{
-                  x: [0, -30, 0],
-                }}
+                animate={{ x: [0, -30, 0] }}
                 transition={{
                   duration: 5,
                   repeat: Infinity,
@@ -189,12 +214,45 @@ export default function Hero() {
                   delay: 1,
                 }}
               >
-                <Image
-                  src="/assets/heroBalanceBottom.png"
-                  alt="Balance Bottom"
-                  width={311}
-                  height={176}
-                />
+                <div
+                  className="shadow-lg flex flex-col items-start justify-start relative"
+                  style={{
+                    width: "311px",
+                    height: "176px",
+                    flexShrink: 0,
+                    borderTopLeftRadius: "13px",
+                    borderTopRightRadius: "13px",
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                    backdropFilter: "blur(5.1px)",
+                    WebkitBackdropFilter: "blur(5.1px)",
+                    background:
+                      "linear-gradient(180deg, rgba(0, 0, 0, 0.59) 0%, rgba(46, 46, 46, 0.59) 37%, rgba(50, 0, 65, 0.24) 100%)",
+                  }}
+                >
+                  <div className="absolute top-3 left-4 z-10 flex flex-col items-start">
+                    <span className="text-xs text-[#B6B6B6] font-medium">
+                      Portfolio Balance
+                    </span>
+                    <span className="text-lg font-bold text-white mt-1">
+                      $32147
+                    </span>
+                  </div>
+                  <Image
+                    src="/assets/BottomChart.png"
+                    alt="Bottom Chart"
+                    width={593}
+                    height={284}
+                    className="absolute bottom-0 left-0 z-0"
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "inherit",
+                      width: "493px",
+                      height: "164px",
+                      flexShrink: 0,
+                    }}
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
