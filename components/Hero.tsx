@@ -185,10 +185,10 @@ export default function Hero() {
                   }}
                 >
                   <div className="absolute top-3 left-4 z-10 flex flex-col items-start">
-                    <span className="text-xs text-[#B6B6B6] font-medium">
+                    <span className="text-[13px] text-[#B6B6B6] font-medium">
                       Portfolio Balance
                     </span>
-                    <span className="text-lg font-bold text-white mt-1">
+                    <span className="text-xl font-bold text-white mt-1">
                       $32147
                     </span>
                   </div>
@@ -230,11 +230,11 @@ export default function Hero() {
                       "linear-gradient(180deg, rgba(0, 0, 0, 0.59) 0%, rgba(46, 46, 46, 0.59) 37%, rgba(50, 0, 65, 0.24) 100%)",
                   }}
                 >
-                  <div className="absolute top-3 left-4 z-10 flex flex-col items-start">
-                    <span className="text-xs text-[#B6B6B6] font-medium">
+                  <div className="absolute top-3 left-4 z-10 flex flex-col items-start gap-4">
+                    <span className="text-[16px] text-[#B6B6B6] font-medium">
                       Portfolio Balance
                     </span>
-                    <span className="text-lg font-bold text-white mt-1">
+                    <span className="text-[32px] font-bold text-white mt-1">
                       $32147
                     </span>
                   </div>
