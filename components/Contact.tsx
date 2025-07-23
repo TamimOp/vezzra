@@ -1,9 +1,12 @@
 "use client";
 
+import React, { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function Contact() {
+  const [isActive, setIsActive] = useState(false);
+
   const handleSendEmail = () => {
     toast.success("Email sent successfully!", {
       duration: 3000,
@@ -33,10 +36,15 @@ export default function Contact() {
       id="contact"
       className="relative flex justify-center px-2 sm:px-4 py-16 sm:py-32 overflow-hidden bg-black"
     >
-      <div className="relative w-full max-w-6xl group cursor-pointer">
+      <div
+        className="relative w-full max-w-6xl group cursor-pointer"
+        onClick={() => setIsActive(true)}
+      >
         {/* Gradient border wrapper */}
         <div
-          className="absolute inset-0 rounded-3xl sm:rounded-[68px] rotate-[2deg] transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-105"
+          className={`absolute inset-0 rounded-3xl sm:rounded-[68px] transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-105 ${
+            !isActive ? "rotate-[2deg]" : ""
+          } sm:rotate-[2deg]`}
           style={{
             background:
               "linear-gradient(90.21deg, rgba(165, 165, 165, 0.46) 1.29%, rgba(45, 6, 146, 0.85) 98.01%)",
@@ -48,7 +56,9 @@ export default function Contact() {
 
         {/* Content container */}
         <div
-          className="relative rounded-3xl sm:rounded-[68px] px-4 sm:px-10 md:px-20 py-8 sm:py-16 w-full text-center rotate-[2deg] min-h-[340px] sm:min-h-[480px] md:min-h-[560px] flex flex-col justify-center mx-auto transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-105"
+          className={`relative rounded-3xl sm:rounded-[68px] px-4 sm:px-10 md:px-20 py-8 sm:py-16 w-full text-center min-h-[340px] sm:min-h-[480px] md:min-h-[560px] flex flex-col justify-center mx-auto transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-105 ${
+            !isActive ? "rotate-[2deg]" : ""
+          } sm:rotate-[2deg]`}
           style={{
             boxShadow: "0px 2px 32px 6px #2D0692",
           }}
@@ -70,6 +80,7 @@ export default function Contact() {
                 background: "#35247482",
                 boxShadow: "0px 4px 38.1px 9px #1B0062C7",
               }}
+              onClick={() => setIsActive(true)}
             />
             <button
               onClick={handleSendEmail}
