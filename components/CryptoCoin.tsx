@@ -1,22 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { cryptoData, tabs } from "../data/cryptoData";
 
 const CryptoCoin = () => {
   const [activeTab, setActiveTab] = useState("Popular");
+  const [isMobile, setIsMobile] = useState(false);
 
-  const currentData = cryptoData[activeTab as keyof typeof cryptoData] || cryptoData.Popular;
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const currentData =
+    cryptoData[activeTab as keyof typeof cryptoData] || cryptoData.Popular;
 
   return (
     <section
       className="w-full px-6 sm:px-12 lg:px-20 xl:px-30 py-16 sm:py-20 lg:py-24 text-white"
       style={{
-        background:
-          "radial-gradient(40% 40% at 50% 50%, rgba(90, 5, 238, 0.72) 0%, rgba(90, 5, 238, 0.2) 40%, rgba(90, 5, 238, 0.1) 70%, black 100%)",
+        background: isMobile
+          ? "radial-gradient(80% 40% at 50% 50%, rgba(90, 5, 238, 0.72) 0%, rgba(90, 5, 238, 0.2) 40%, rgba(90, 5, 238, 0.1) 70%, black 100%)"
+          : "radial-gradient(40% 40% at 50% 50%, rgba(90, 5, 238, 0.72) 0%, rgba(90, 5, 238, 0.2) 40%, rgba(90, 5, 238, 0.1) 70%, black 100%)",
         backdropFilter: "blur(340px)",
       }}
     >
@@ -81,12 +91,12 @@ const CryptoCoin = () => {
               type: "spring",
               stiffness: 100,
             }}
-            whileHover={{ 
+            whileHover={{
               y: -8,
-              transition: { 
+              transition: {
                 duration: 0.3,
-                ease: "easeOut"
-              }
+                ease: "easeOut",
+              },
             }}
             className="relative bg-[#2D069282] rounded-xl p-4 sm:p-5 lg:p-8 flex flex-col items-center justify-center text-center hover:bg-[#2D069299] transition-colors duration-300 min-h-[200px] sm:min-h-[220px] cursor-pointer border border-transparent hover:border-purple-500/20"
             style={{
